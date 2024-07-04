@@ -55,3 +55,31 @@ class CustomDataset (torch.utils.data.Dataset):
 - Initialization: The class is initialized with a tokenizer, a DataFrame (df), and the maximum length of tokens (max_len).
 - Length: The __len__ method returns the number of samples in the dataset.
 - Get Item: The __getitem__ method retrieves an item at the specified index, processes the text (removing spaces), and uses the tokenizer to encode the text. It returns a dictionary containing the input IDs, attention mask, token type IDs, and targets.
+
+## Model Initialization
+The BertClass class defines the BERT model used for text classification. Here is the implementation and explanation of the class:
+```bash
+class BertClass(nn.Module):
+    def __init__(self):
+        super (BertClass,self).__init__()
+        self.bert_model = BertModel.from_pretrained('bert-base-uncased',return_dict =True)
+        self.dropout = nn.Dropout(.3)
+        self.linear = nn.Linear(768,6)
+    def forward (self,input_ids,attention_mask  ,token_type_ids ):
+        output = self.bert_model(input_ids , attention_mask , token_type_ids)
+        output_dropout = self.dropout(output.pooler_output)
+        output  =self.linear(output_dropout)
+        return output
+```
+## Explanation
+- ## Initialization
+- The class initializes the BERT model (bert-base-uncased), a dropout layer, and a linear layer for classification.
+- self.linear = nn.Linear(768, 6): This line initializes a fully connected linear layer with an input dimension of 768 and an output dimension of 6. The input dimension 768 corresponds to the hidden size of the BERT model's pooled output. The output dimension 6 indicates that the model is designed to classify the input text into one of six different classes. Previously, if the output dimension was 2, the model was configured for binary classification (two classes). Now, it has been modified to perform multi-class classification with six classes.
+
+
+- ## Forward Method:
+- The forward method defines the forward pass of the model. It takes input IDs, attention mask, and token type IDs as inputs.
+- The inputs are passed through the BERT model to obtain the pooled output.
+- This output is then passed through a dropout layer to prevent overfitting.
+- Finally, the dropout output is passed through the linear layer to obtain the final classification scores for the six classes.
+
