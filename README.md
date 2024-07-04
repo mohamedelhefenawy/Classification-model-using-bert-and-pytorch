@@ -52,6 +52,6 @@ class CustomDataset (torch.utils.data.Dataset):
 }
 ```
 ## Explanation
-- `Initialization: The class is initialized with a tokenizer, a DataFrame (df), and the maximum length of tokens (max_len).`
-- `Length: The __len__ method returns the number of samples in the dataset.`
-- `Get Item: The __getitem__ method retrieves an item at the specified index, processes the text (removing spaces), and uses the tokenizer to encode the text. It returns a dictionary containing the input IDs, attention mask, token type IDs, and targets.`
+- Initialization: The class is initialized with a tokenizer, a DataFrame (df), and the maximum length of tokens (max_len).
+- Length: The __len__ method returns the number of samples in the dataset.
+- Get Item: The __getitem__ method retrieves an item at the specified index, processes the text (removing spaces), and uses the tokenizer to encode the text. It returns a dictionary containing the input IDs, attention mask, token type IDs, and targets.
