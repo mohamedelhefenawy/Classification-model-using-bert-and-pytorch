@@ -83,3 +83,24 @@ class BertClass(nn.Module):
 - This output is then passed through a dropout layer to prevent overfitting.
 - Finally, the dropout output is passed through the linear layer to obtain the final classification scores for the six classes.
 
+
+
+
+## Evaluation
+The notebook includes a function to evaluate the trained model. It calculates the following metrics:
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+- ROC AUC
+
+## Results
+After training and evaluation, the model's performance is printed. Example output metrics:
+```bash
+Accuracy: 0.6307
+Precision: 0.8046
+Recall: 0.7463
+F1 Score: 0.7740
+ROC AUC: 0.8363
+```
+
