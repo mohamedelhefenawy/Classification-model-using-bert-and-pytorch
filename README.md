@@ -164,13 +164,13 @@ def train_model(n_epochs, training_loader, validation_loader, model,
 ```
 ### Explanation
  #### Function Arguments:
--n_epochs: The number of training epochs.
--training_loader: DataLoader for the training dataset.
--validation_loader: DataLoader for the validation dataset.
--model: The BERT model to be trained.
--optimizer: The optimizer used for training.
--checkpoint_path: Path to save checkpoints during training.
--best_model_path: Path to save the best model based on validation loss.
+- n_epochs: The number of training epochs.
+- training_loader: DataLoader for the training dataset.
+- validation_loader: DataLoader for the validation dataset.
+- model: The BERT model to be trained.
+- optimizer: The optimizer used for training.
+- checkpoint_path: Path to save checkpoints during training.
+- best_model_path: Path to save the best model based on validation loss.
 
 #### Training Loop:
 - The function initializes the minimum validation loss (valid_loss_min) to infinity.
